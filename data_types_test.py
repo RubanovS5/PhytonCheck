@@ -23,14 +23,16 @@ def test_form():
     Chrome_driver.find_element(By.XPATH, "//input[@name='company']").send_keys("SkyPro")
     Chrome_driver.find_element(By.XPATH, "//button[text()='Submit']").click()
 
-    WebDriverWait(Chrome_driver, 10, 0.1).until(EC.presence_of_element_located(By.XPATH, "//input[@id='zip-code']"))
-    zip_color = zip.__getattribute__("color")
-    print(zip_color)
+    assert Chrome_driver.find_element(By.CSS_SELECTOR, "#first-name").value_of_css_property("background-color") == "rgba(209, 231, 221, 1)"
+    assert Chrome_driver.find_element(By.CSS_SELECTOR, "#last-name").value_of_css_property("background-color") == "rgba(209, 231, 221, 1)"
+    assert Chrome_driver.find_element(By.CSS_SELECTOR, "#address").value_of_css_property("background-color") == "rgba(209, 231, 221, 1)"
+    assert Chrome_driver.find_element(By.CSS_SELECTOR, "#zip-code").value_of_css_property("background-color") == "rgba(248, 215, 218, 1)"
+    assert Chrome_driver.find_element(By.CSS_SELECTOR, "#city").value_of_css_property("background-color") == "rgba(209, 231, 221, 1)"
+    assert Chrome_driver.find_element(By.CSS_SELECTOR, "#country").value_of_css_property("background-color") == "rgba(209, 231, 221, 1)"
+    assert Chrome_driver.find_element(By.CSS_SELECTOR, "#e-mail").value_of_css_property("background-color") == "rgba(209, 231, 221, 1)"
+    assert Chrome_driver.find_element(By.CSS_SELECTOR, "#phone").value_of_css_property("background-color") == "rgba(209, 231, 221, 1)"
+    assert Chrome_driver.find_element(By.CSS_SELECTOR, "#job-position").value_of_css_property("background-color") == "rgba(209, 231, 221, 1)"
+    assert Chrome_driver.find_element(By.CSS_SELECTOR, "#company").value_of_css_property("background-color") == "rgba(209, 231, 221, 1)"
+  
 
-
-    #expected_color = "rgb(245, 194, 199)"
-   # if zip_color == expected_color:
- #       print("Красный цвет")
-#else:
- ##      print("Не красный цвет")
   
